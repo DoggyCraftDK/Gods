@@ -252,6 +252,14 @@ public class Commands
 				}
 				return true;
 			}
+			if (args[0].equalsIgnoreCase("law"))
+			{
+				if (CommandLaw(player, args))
+				{
+					this.plugin.log(sender.getName() + " /gods law");
+				}
+				return true;
+			}
 			if (args[0].equalsIgnoreCase("home"))
 			{
 				if (CommandHome(player, args))
@@ -642,7 +650,7 @@ public class Commands
 		
 		sender.sendMessage(moodColor + godName + " is " + this.plugin.getLanguageManager().getGodMoodName(godMood));
 
-		Material neededItem = this.plugin.getGodManager().getSacrificeItemTypeForGod(godName);
+		Material neededItem = this.plugin.getSacrificeManager().getSacrificeItemTypeForGod(godName);
 		if (neededItem != null)
 		{
 			sender.sendMessage(ChatColor.GOLD + godName + ChatColor.AQUA + " wants more " + ChatColor.WHITE + this.plugin.getLanguageManager().getItemTypeName(neededItem));
@@ -1602,6 +1610,38 @@ public class Commands
 		}
 
 		player.teleport(location);
+
+		return true;
+	}
+	
+	private boolean CommandLaw(CommandSender sender, String[] args)
+	{
+		Player player = (Player) sender;
+
+		if ((!player.isOp()) && (!this.plugin.getPermissionsManager().hasPermission(player, "gods.priest.law")))
+		{
+			sender.sendMessage(ChatColor.RED + "You do not have permission for that");
+			return false;
+		}
+		
+		String godName = this.plugin.getBelieverManager().getGodForBeliever(player.getUniqueId());
+		
+		if (godName == null)
+		{
+			sender.sendMessage(ChatColor.RED + "You do not believe in a God");
+			return false;
+		}
+				
+		if ((this.plugin.onlyPriestCanSetHome) && (!this.plugin.getGodManager().isPriest(player.getUniqueId())))
+		{
+			sender.sendMessage(ChatColor.RED + "Only your priest can set holy laws for your religion");
+			return false;
+		}
+		
+		this.plugin.getGodManager().generateLawQuestionsForGod(godName, player.getLocation());
+
+		this.plugin.getLanguageManager().setPlayerName(player.getName());
+		this.plugin.getGodManager().godSayToBelievers(godName, LanguageManager.LANGUAGESTRING.GodToBelieversSetHome, 2);
 
 		return true;
 	}

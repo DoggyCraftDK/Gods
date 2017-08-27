@@ -65,6 +65,9 @@ public class QuestManager
 		SHOWHOLYARTIFACT,
 		CRAFTITEMS,
 		SLAYDRAGON,
+		SACRIFICEFORLOVE,
+		KILLSOMEONE, // Starting with the letter ...
+		BURNDOWNSOMETHING, // Detect wood houses not protected
 		CRUSADE;
 
 		public String toString()

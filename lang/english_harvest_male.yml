@@ -1,34 +1,31 @@
 Version:
-  Name : Evil Goddess
+  Name : Harvest God
   Author: DogOnFire
   Version: 0.1
-GodToBelieverPrayerWhenNoItemNeed:
-- $PlayerName, you FOOL! You already have the items you need to do my work!
 GodToBelieverMarriedCouple:
-- $PlayerName, your unholy bond is making $ServerName a better place!
-- $PlayerName, your unholy bond spreads darkness across $ServerName!
-- Live together and be EVIL, $PlayerName!!
-- Live your life in the name of EVIL, $PlayerName!
+- $PlayerName, your love is making $ServerName a better place!
+- $PlayerName, your love shows the light for everyone in $ServerName!
+- May you live happy forever after, $PlayerName!
 GodToBelieverMarriageProposal:
-- I now ask of you, will you marry $PlayerName in the name of Evil?
+- I now ask of you, will you marry $PlayerName?
 GodToBelieverAcceptedMarriageProposal:
-- Very good, Now present your $Type to $PlayerName as a symbol of your dark love!
+- Very good, Now present your $Type to $PlayerName as a symbol of your love!
 GodToBelieverAcceptedYourMarriageProposal:
 - $PlayerName accepted your marrige proposal! Now present your $Type to $PlayerName as a symbol of your love!
 GodToBelieverMarriageTokenPickup:
-- Very good. Now present a $Type to $PlayerName to complete your unholy bonding!
+- Very good. Now present a $Type to $PlayerName to complete you wedding ceremony!
 GodToBelieverMarriagePartnerTokenPickup:
-- $PlayerName has taken your $Type. Now let $PlayerName give a $Type to you to complete the ceremony!
+- $PlayerName has taken your $Type. Now let $PlayerName give a $Type to you to complete you wedding ceremony!
 GodToBelieverMarried:
-- I now declare you both married in the Unholy name of EVIL!
+- I now declare you both married in the Holy name of nature!
 GodToBelieverRandomExaltedSpeech:
-- I am proud of you my Children! You have spread true darkness!
-- You make me proud, my children!
+- I am proud of you my Children! You have showed true faith in me!
+- You make me proud, my children! You have followed my words and proven your faith!
 - Our faith is growing! You will all be rewarded!
-- $PlayerName, you are a truly EVIL person. I approve!
-- The fools of $ServerName will soon learn the name of true EVIL!
-- Yes! I can feel your belief in me! Our EVIL will spread across $ServerName!
-- I am proud of you all! From your hard work, EVIL will take over $ServerName!
+- $PlayerName, I am proud of you! Your faith will be rewarded!
+- $PlayerName, you make me proud! You shall be rewarded!
+- Yes! I can feel your faith in me! Our faith is a shining beacon for everyone to follow!
+- Very good! Your faith is strong! I am proud of you all!
 GodToBelieverRandomPleasedSpeech:
 - I am pleased with you all, my children!
 - Very good, my Children! We are doing well!
@@ -79,9 +76,9 @@ GodToBelieverRandomNeutralSpeech:
 - If you feel lost, talk to $PlayerName! He will show you the light!
 - Remember, $PlayerName is our priest, he will guide you towards the light!
 GodToBelieverRandomDispleasedSpeech:
-- ... Pray harder!
-- I can sense your lack of dedication to me. Pray to me and listen to my words!
-- $PlayerName, show me respect! Help me to re-gain faith from our believers!
+- We are losing faith, my children... Pray harder!
+- I can sense your lack of faith... Pray to me and listen to my words!
+- $PlayerName, we are losing faith! Help me to re-gain faith from our believers!
 - I am worried about $PlayerName. My followers are losing faith! Please spread my words!
 - I am disturbed by your lack of faith! Pray harder!
 GodToBelieverRandomAngrySpeech:
@@ -95,7 +92,7 @@ GodToBelieverNoQuestion:
 GodToBelieversPriestAccepted:
 - My Children, $PlayerName has accepted to be my priest! A bright future awaits us!
 GodToPriestEatFoodType:
-- 'Tell our believers of our most evil food: The $Type!'
+- 'Tell our believers of our most sacred food: The $Type!'
 - 'Tell our believers to eat our holy food: The $Type!'
 - Tell our believers about the joy of $Type! You must eat it!
 GodToPriestNotEatFoodType:
@@ -189,7 +186,7 @@ GodToBelieverItemBlessing:
 - $PlayerName, you need some $Type. Take this with my blessings!
 - $PlayerName, you should have a $Type. Take this with my blessings!
 GodToBelieverHolyArtifactBlessing:
-- Here my child. Use this to punish the fools of $ServerName!
+- Here my child. Use this to bring the harvest in $ServerName!
 GodToBelieversSlayQuestFailed:
 - My Children, I am displeased in you. You have failed to perform this simple task for me...
 GodToBelieversLostBeliever:
@@ -329,23 +326,29 @@ GodToBelieversHolyBattleQuestFailed:
 - My Children, you have FAILED to reach the temple of $PlayerName first. I am dissapointed...
 - Oh no! We did not reach the temple of $PlayerName in time...
 GodToBelieversPilgrimageQuestStarted:
-- LISTEN! Travel to the $Type! Go there NOW or you will be punished!
+- My children, I have seen visions for the Holy mountain of $Type! We MUST get it before the other Gods!
+- My children, you must depart on a pilgrimage to the Holy mountain of $Type!
 GodToBelieversPilgrimageQuestStatus:
-- Move it! You must travel to the $Type!
+- My children, you must hurry! Get to Holy mountain of $Type before the false Gods!
+- $PlayerName, please hurry! Find the Holy mountain of $Type before it is too late!
+- My light will guide you on your travel to mount $Type! Go now!
+- Hurry! Go to the mountain of $Type before it is too late!
+- Do not let our Holy mountain of $Type get into the hand of the false Gods!
 GodToBelieversPilgrimageQuestProgress:
 - Well done, my children!
 GodToBelieversPilgrimageQuestCompleted:
-- Well done! You travelled far in the name of evil. Here are your rewards!
+- I am proud of you my children! You travelled far and completed your goal. Here is your reward!
+- I am proud of you my children! You have reached mount $Type and shown your faith. Here is your reward!
 GodToBelieversPilgrimageQuestFailed:
-- My Children, I am displeased in you. You have not shown respect for our faith...
-- My Children, I am displeased in you. You have failed to complete this simple task for me...
-GodToBelieversGetHolyArtifactThisQuestStarted:
-- My children, I have just remembered that I left a $Type while visiting my believers 500 years ago! Retrieve it before it fall into the wrong hands!
-- OH NO!, I have just remembered that I left a $Type while visiting my believers 500 years ago! Retrieve it before it fall into the wrong hands!
-GodToBelieversGetHolyArtifactOtherQuestStarted:
-- My children, $PlayerName has carelessly left a $Type in an ancient temple! We MUST go and get it for our own purposes!
-- I have just learned that $PlayerName has carelessly left a $Type in an ancient temple! We MUST get it for ourselves!
-GodToBelieversGetHolyArtifactThisQuestStatus:
+- My Children, I am displeased in you. You could not even be bothered to find our Holy mountain...
+GodToBelieversPilgrimageQuestHelp:
+- $PlayerName, please find your way to the holy mountain before any other! Type /g hunt
+GodToBelieversPilgrimageQuestRange:
+- You are only $Amount blocks away from mount $Type!
+- $PlayerName, you must Hurry! You are $Amount blocks away from the holy mountain!
+GodToBelieversGetHolyArtifactQuestStarted:
+- My children, I have seen the location of a Holy artifact $Type left behind 500 years ago! Retrieve it before it fall into the wrong hands!
+GodToBelieversGetHolyArtifactQuestStatus:
 - My children, please hurry! Find my lost $Type before it is too late!
 - Our holy book will guide you to my lost $Type! Go now!
 - My children, you must follow our Holy Creature to my $Type before it is too late!
@@ -355,30 +358,22 @@ GodToBelieversGetHolyArtifactThisQuestStatus:
 - Use our Holy Book and let our Holy Creature show you the way to the lost temple!
 - Our Holy Book will show guide you to my $Type!
 - Please, do not let my $Type get into the hand of the false Gods!
-GodToBelieversGetHolyArtifactOtherQuestStatus:
-- My children, please hurry! Find the lost $Type of $PlayerName before they get to it!
-- The Holy Creature will guide you to the lost temple of $PlayerName! Go now!
-- My children, follow our Holy Creature to the lost $Type of $PlayerName before it is too late!
-- Hurry! We must get that $Type before anyone else!
-- $PlayerName is such a FOOL to leave that $Type lying around in a temple...
-- Show those foolish followers of $PlayerName who has the true power in this world!
-- The foolish $PlayerName will see our power when we take their precious $Type right before their eyes!
-- Remember, we must still get to the $Type before anyone else!
-- Use our Holy Book and let our Holy Creature show you the way to the lost $Type!
-- Do not let that $Type get into the hand of the foolish followers of $PlayerName!
 GodToBelieversGetHolyArtifactQuestProgress:
-- Well done, my children! Only $Amount non-believers left to kill in my honor!
-GodToBelieversGetHolyArtifactThisQuestCompleted:
+- Well done, my children!
+GodToBelieversGetHolyArtifactQuestCompleted:
 - WELL DONE! You have saved my $Type from falling into the wrong hands of other Gods. Here is your reward!
 - I am proud of you! You have prevented my $Type from falling into the wrong hands of other Gods. Here is your reward!
-GodToBelieversGetHolyArtifactThisQuestFailed:
+GodToBelieversGetHolyArtifactOtherQuestFailed:
 - Oh no... My $Type have fallen into the hand of another faith... You have failed me...
 - Oh no... My $Type is lost to the false Gods... We have failed...
-GodToBelieversGetHolyArtifactOtherQuestCompleted:
-- WELL DONE! We succesfully claimed the $Type of $PlayerName for ourselves! I can almost hear $PlayerName crying now! Here is your reward!
-- HAHA! We succesfully took $PlayerName's $Type away right infront of their eyes! $PlayerName is such a fool! Here is your reward!
-GodToBelieversGetHolyArtifactOtherQuestFailed:
 - 'NOO... The $Type of was retrieved by the followers of $PlayerName . Such a shame... '
+GodToBelieversGetHolyArtifactQuestFailed:
+- Oh no... The Holy Artifact of $Type is lost forever... You have failed me...
+GodToBelieversGetHolyArtifactQuestHelp:
+- My Children, you must find the Holy artifact of $Type! Use /gods hunt to join the search! 
+GodToBelieversGetHolyArtifactQuestRange:
+- You are only $Amount blocks away from mount $Type!
+- $PlayerName, you must Hurry! You are $Amount blocks away from the holy mountain!
 GodToBelieversClaimHolyLandQuestStarted:
 - My children, we must claim the Holy Land of $type!
 GodToBelieversClaimHolyLandQuestStatus:

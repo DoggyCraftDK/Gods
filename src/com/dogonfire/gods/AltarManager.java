@@ -23,7 +23,7 @@ public class AltarManager
 {
 	private Gods plugin;
 	private Random random = new Random();
-	private HashMap<Integer, String> droppedItems = new HashMap();
+	//private HashMap<Integer, String> droppedItems = new HashMap();
 	private HashMap<Material, List<GodManager.GodType>> altarBlockTypes = new HashMap();
 
 	AltarManager(Gods p)
@@ -498,7 +498,7 @@ public class AltarManager
 		
 		return true;
 	}
-
+/*
 	public void addDroppedItem(int entityID, String playerName)
 	{
 		this.droppedItems.put(Integer.valueOf(entityID), playerName);
@@ -514,4 +514,5 @@ public class AltarManager
 		this.plugin.logDebug("Cleared " + this.droppedItems.size() + " dropped items");
 		this.droppedItems.clear();
 	}
+	*/
 }

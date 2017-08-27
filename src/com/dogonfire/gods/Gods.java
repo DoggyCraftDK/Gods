@@ -30,9 +30,11 @@ public class Gods extends JavaPlugin
 	private PrayerManager prayerManager = null;
 	private MarriageManager marriageManager = null;
 	private HolyPowerManager holyPowerManager = null;
+	private SacrificeManager sacrificeManager = null;
 	//private ProphecyManager prophecyManager = null;
 	//private BossManager bossManager = null;
 	private HolyArtifactManager holyArtifactManager = null;
+	private HolyLawManager holyLawManager = null;
 	private ChatManager chatManager = null;
 	private PermissionsManager permissionsManager = null;
 	private HolyLandManager landManager = null;
@@ -161,6 +163,11 @@ public class Gods extends JavaPlugin
 //		return this.prophecyManager;
 //	}
 
+	public HolyLawManager getHolyLawManager()
+	{
+		return this.holyLawManager;
+	}
+
 	public HolyArtifactManager getHolyArtifactManager()
 	{
 		return this.holyArtifactManager;
@@ -219,6 +226,11 @@ public class Gods extends JavaPlugin
 	public PrayerManager getPrayerManager()
 	{
 		return this.prayerManager;
+	}
+
+	public SacrificeManager getSacrificeManager()
+	{
+		return this.sacrificeManager;
 	}
 
 	public boolean isWhitelistedGod(String godName)
@@ -437,6 +449,11 @@ public class Gods extends JavaPlugin
 		}
 		
 		this.sacrificesEnabled = this.config.getBoolean("Sacrifices.Enabled", true);
+		if (this.sacrificesEnabled)
+		{
+			this.sacrificeManager = new SacrificeManager(this);
+			//this.sacrificeManager.load();
+		}
 
 		this.commandmentsEnabled = this.config.getBoolean("Commandments.Enabled", true);
 		this.commandmentsBroadcastFoodEaten = this.config.getBoolean("Commandments.BroadcastFoodEaten", true);

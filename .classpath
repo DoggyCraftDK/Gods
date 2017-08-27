@@ -9,7 +9,7 @@
 	<classpathentry kind="lib" path="lib/WorldGuard.jar"/>
 	<classpathentry kind="lib" path="lib/zPermissions-1.2a.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="D:/CloudStation/minecraft/plugins/Gods/lib/spigot-1.10.2.jar"/>
-	<classpathentry kind="lib" path="D:/CloudStation/minecraft/plugins/Gods/lib/spigot-api-1.10.2-R0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="D:/Nextcloud/Projects/minecraft/plugins/Gods/lib/spigot-1.10.2.jar"/>
+	<classpathentry kind="lib" path="D:/Nextcloud/Projects/minecraft/plugins/Gods/lib/spigot-api-1.10.2-R0.1-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

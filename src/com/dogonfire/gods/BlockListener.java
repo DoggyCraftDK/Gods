@@ -539,7 +539,7 @@ public class BlockListener implements Listener
 		{
 			return;
 		}
-		this.plugin.getAltarManager().addDroppedItem(event.getItemDrop().getEntityId(), player.getName());
+		this.plugin.getSacrificeManager().addDroppedItem(event.getItemDrop().getEntityId(), player.getName());
 		if (this.plugin.holyArtifactsEnabled)
 		{
 			this.plugin.getHolyArtifactManager().handleDrop(player.getName(), event.getItemDrop(), event.getItemDrop().getLocation());
@@ -710,7 +710,7 @@ public class BlockListener implements Listener
 		{
 			return;
 		}
-		String believerName = this.plugin.getAltarManager().getDroppedItemPlayer(event.getEntity().getEntityId());
+		String believerName = this.plugin.getSacrificeManager().getDroppedItemPlayer(event.getEntity().getEntityId());
 		if (believerName == null)
 		{
 			return;
@@ -738,7 +738,7 @@ public class BlockListener implements Listener
 			return;
 		}
 		
-		this.plugin.getGodManager().handleSacrifice(godName, player, item.getItemStack().getType());
+		this.plugin.getSacrificeManager().handleSacrifice(godName, player, item.getItemStack().getType());
 	}
 
 	@EventHandler
@@ -749,7 +749,14 @@ public class BlockListener implements Listener
 		{
 			return;
 		}
+		
 		String godName = this.plugin.getBelieverManager().getGodForBeliever(player.getUniqueId());
+		
+		if(godName==null)
+		{
+			return;
+		}
+		
 		GodManager.GodType godType = this.plugin.getGodManager().getDivineForceForGod(godName);
 
 		this.plugin.getGodManager().handleKilledPlayer(player.getUniqueId(), godName, godType);
@@ -757,6 +764,7 @@ public class BlockListener implements Listener
 
 		double powerAfter = 0.0D;
 		double powerBefore = 0.0D;
+		
 		if ((event.getEntity().getKiller() != null) && ((event.getEntity().getKiller() instanceof Player)))
 		{
 			Player killer = event.getEntity().getKiller();
