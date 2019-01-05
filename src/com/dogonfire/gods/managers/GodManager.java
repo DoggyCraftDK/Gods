@@ -3429,46 +3429,7 @@ public class GodManager
 			{
 				toggleWarRelationForGod(otherGodName, godName);
 			}
-			else if (!this.plugin.getBelieverManager().hasRecentBibleBlessing(believer.getUniqueId()))
-			{
-				if (this.plugin.itemBlessingEnabled)
-				{
-					float power = getGodPower(godName);
-					if ((power >= this.plugin.minGodPowerForItemBlessings) && (this.random.nextInt((int) (1.0F + 100.0F / power)) == 0))
-					{
-						double healing = getHealthNeed(godName, believer);
-						if ((healing > 1.0D) && (this.random.nextInt(2) == 0))
-						{
-							healPlayer(godName, believer, getHealthBlessing(godName));
-
-							this.plugin.getBelieverManager().setItemBlessingTime(believer.getUniqueId());
-
-							return true;
-						}
-
-						ItemStack bible = blessPlayerWithBible(godName, believer);
-
-						if (bible != null)
-						{
-							this.plugin.getLanguageManager().setPlayerName(believer.getDisplayName());
-							try
-							{
-								this.plugin.getLanguageManager().setType(this.plugin.getLanguageManager().getItemTypeName(blessedItem.getType()));
-							}
-							catch (Exception ex)
-							{
-								this.plugin.logDebug(ex.getStackTrace().toString());
-							}
-							this.plugin.getBelieverManager().setItemBlessingTime(believer.getUniqueId());
-
-							return true;
-						}
-					}
-				}
-			}
 		}
-		
-		//TODO: Give bible to players
 
 		this.godsConfig.set(godName, null);
 
@@ -3951,8 +3912,8 @@ public class GodManager
 		manageCurses(godName);
 
 		manageSacrifices(godName);
-		
-		plugin.getSacrificeManager().manageSacrifices(godName);
+
+		manageSacrifices();
 
 		manageHolyLands();
 		

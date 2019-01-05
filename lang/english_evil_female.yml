@@ -79,9 +79,9 @@ GodToBelieverRandomNeutralSpeech:
 - If you feel lost, talk to $PlayerName! He will show you the light!
 - Remember, $PlayerName is our priest, he will guide you towards the light!
 GodToBelieverRandomDispleasedSpeech:
-- ... Pray harder!
-- I can sense your lack of dedication to me. Pray to me and listen to my words!
-- $PlayerName, show me respect! Help me to re-gain faith from our believers!
+- We are losing faith, my children... Pray harder!
+- I can sense your lack of faith... Pray to me and listen to my words!
+- $PlayerName, we are losing faith! Help me to re-gain faith from our believers!
 - I am worried about $PlayerName. My followers are losing faith! Please spread my words!
 - I am disturbed by your lack of faith! Pray harder!
 GodToBelieverRandomAngrySpeech:
@@ -95,7 +95,7 @@ GodToBelieverNoQuestion:
 GodToBelieversPriestAccepted:
 - My Children, $PlayerName has accepted to be my priest! A bright future awaits us!
 GodToPriestEatFoodType:
-- 'Tell our believers of our most evil food: The $Type!'
+- 'Tell our believers of our most sacred food: The $Type!'
 - 'Tell our believers to eat our holy food: The $Type!'
 - Tell our believers about the joy of $Type! You must eat it!
 GodToPriestNotEatFoodType:

@@ -12,8 +12,10 @@ softdepend:
 commands:
   g:
     description: "Controls the god system"
-    usage: /<command>
-    aliases: gods
+    usage: /g
+  gods:
+    description: "Controls the god system"
+    usage: /gods
 permissions: 
   gods.*: 
     children: 

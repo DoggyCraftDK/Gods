@@ -515,5 +515,4 @@ public class AltarManager
 		}
 		this.altarBlockTypes.put(blockMaterial, godTypes);
 	}
-	*/
 }
