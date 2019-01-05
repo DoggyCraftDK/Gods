@@ -2,16 +2,15 @@ package com.dogonfire.gods.tasks;
 
 import java.util.Random;
 
-import com.dogonfire.gods.GodManager;
 import com.dogonfire.gods.Gods;
-import com.dogonfire.gods.LanguageManager;
+import com.dogonfire.gods.managers.HolyPowerManager;
 
 import org.bukkit.ChatColor;
+import org.bukkit.EntityEffect;
 import org.bukkit.Server;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftOcelot;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftPlayer;
 import org.bukkit.entity.Ocelot;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Wolf;
 import org.bukkit.scheduler.BukkitScheduler;
 
 public class LoveTask implements Runnable
@@ -47,30 +46,26 @@ public class LoveTask implements Runnable
 		boolean firework = (random.nextInt(100) == 0);
 
 		{
-			CraftPlayer player = (CraftPlayer) this.player1;
-			CraftOcelot ocelot = (CraftOcelot) player.getWorld().spawn(player.getLocation(), Ocelot.class);
-
-			player.getHandle().world.broadcastEntityEffect(ocelot.getHandle(), (byte) 7);
-			ocelot.remove();
+			Wolf wolf = player1.getWorld().spawn(this.player1.getLocation(), Wolf.class);
+			wolf.playEffect(EntityEffect.WOLF_HEARTS);		
+			wolf.remove();
 
 			if (firework)
 			{
-				this.plugin.getHolyPowerManager().shootFirework(player, 16);
+				HolyPowerManager.get().shootFirework(player1, 16);
 			}
 		}
 
 		{
-			CraftPlayer player = (CraftPlayer) this.player2;
-			CraftOcelot ocelot = (CraftOcelot) player.getWorld().spawn(player.getLocation(), Ocelot.class);
-
-			player.getHandle().world.broadcastEntityEffect(ocelot.getHandle(), (byte) 7);
-			ocelot.remove();
+			Wolf wolf = player2.getWorld().spawn(this.player2.getLocation(), Wolf.class);
+			wolf.playEffect(EntityEffect.WOLF_HEARTS);		
+			wolf.remove();
 
 			if (firework)
 			{
-				this.plugin.getHolyPowerManager().shootFirework(player, 16);
+				HolyPowerManager.get().shootFirework(player2, 16);
 			}
-		}
+		}	
 
 		int newcycle = this.cycle - 1;
 		if (newcycle > 0)

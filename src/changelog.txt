@@ -31,6 +31,7 @@ More effects on altar destruction
 * MIRACLE: Walk on water
 * MIRACLE: Saved from drowning
 * MIRACLE: Farmland fertile
+
 * /pray - Leads to help in pvp
 * /pray - Leads to FROZEN mob
 * /pray - Leads to FROZEN player

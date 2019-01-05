@@ -1,6 +1,8 @@
 package com.dogonfire.gods.tasks;
 
 import com.dogonfire.gods.Gods;
+import com.dogonfire.gods.managers.HolyPowerManager;
+
 import java.util.Random;
 import org.bukkit.Effect;
 import org.bukkit.Sound;
@@ -26,7 +28,7 @@ public class DrunkTask implements Runnable
 	{
 		this.player.playSound(this.player.getLocation(), Sound.AMBIENT_CAVE, 1.0F, 0.1F);
 
-		Entity[] entities = this.plugin.getHolyPowerManager().getNearbyLivingEntities(this.player.getLocation(), 20.0D);
+		Entity[] entities = HolyPowerManager.get().getNearbyLivingEntities(this.player.getLocation(), 20.0D);
 		int n = 0;
 		for (Entity entity : entities)
 		{

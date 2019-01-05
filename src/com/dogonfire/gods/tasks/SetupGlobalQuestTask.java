@@ -1,7 +1,8 @@
 package com.dogonfire.gods.tasks;
 
 import com.dogonfire.gods.Gods;
-import com.dogonfire.gods.QuestManager;
+import com.dogonfire.gods.managers.QuestManager;
+
 
 public class SetupGlobalQuestTask implements Runnable
 {
@@ -14,6 +15,6 @@ public class SetupGlobalQuestTask implements Runnable
 
 	public void run()
 	{
-		this.plugin.getQuestManager().GodSayNewGlobalQuest();
+		QuestManager.get().GodSayNewGlobalQuest();
 	}
 }

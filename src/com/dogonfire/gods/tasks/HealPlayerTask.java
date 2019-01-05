@@ -1,9 +1,10 @@
 package com.dogonfire.gods.tasks;
 
-import com.dogonfire.gods.GodManager;
 import com.dogonfire.gods.Gods;
-import com.dogonfire.gods.LanguageManager;
-import com.dogonfire.gods.LanguageManager.LANGUAGESTRING;
+import com.dogonfire.gods.managers.GodManager;
+import com.dogonfire.gods.managers.LanguageManager;
+import com.dogonfire.gods.managers.LanguageManager.LANGUAGESTRING;
+
 import java.util.Random;
 import org.bukkit.Effect;
 import org.bukkit.Location;
@@ -14,12 +15,12 @@ import org.bukkit.potion.PotionEffectType;
 
 public class HealPlayerTask implements Runnable
 {
-	private Gods							plugin;
-	private Player							player	= null;
-	private String							godName	= null;
-	private LanguageManager.LANGUAGESTRING	languageString;
+	private Gods			plugin;
+	private Player			player	= null;
+	private String			godName	= null;
+	private LANGUAGESTRING	languageString;
 
-	public HealPlayerTask(Gods instance, String god, Player p, LanguageManager.LANGUAGESTRING speak)
+	public HealPlayerTask(Gods instance, String god, Player p, LANGUAGESTRING speak)
 	{
 		this.plugin = instance;
 		this.player = p;
@@ -40,8 +41,8 @@ public class HealPlayerTask implements Runnable
 		Random random = new Random();
 		if (healPlayer())
 		{
-			this.plugin.getLanguageManager().setPlayerName(this.player.getName());
-			this.plugin.getGodManager().GodSay(this.godName, this.player, this.languageString, 2 + random.nextInt(10));
+			LanguageManager.get().setPlayerName(this.player.getName());
+			GodManager.get().GodSay(this.godName, this.player, this.languageString, 2 + random.nextInt(10));
 
 			this.plugin.log(this.godName + " healed " + this.player.getName());
 		}

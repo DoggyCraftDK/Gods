@@ -1,10 +1,11 @@
 package com.dogonfire.gods.tasks;
 
-import com.dogonfire.gods.GodManager;
 import com.dogonfire.gods.Gods;
-import com.dogonfire.gods.LanguageManager;
-import com.dogonfire.gods.LanguageManager.LANGUAGESTRING;
+import com.dogonfire.gods.managers.GodManager;
+import com.dogonfire.gods.managers.LanguageManager;
+
 import java.util.Random;
+
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -64,16 +65,18 @@ public class GiveItemTask implements Runnable
 			Random random = new Random();
 			if (this.speak)
 			{
-				this.plugin.getLanguageManager().setPlayerName(this.player.getName());
+				LanguageManager.get().setPlayerName(this.player.getName());
+				
 				try
 				{
-					this.plugin.getLanguageManager().setType(this.itemType.name());
+					LanguageManager.get().setType(this.itemType.name());
 				}
 				catch (Exception ex)
 				{
 					this.plugin.logDebug(ex.getStackTrace().toString());
 				}
-				this.plugin.getGodManager().GodSay(this.godName, this.player, LanguageManager.LANGUAGESTRING.GodToBelieverItemBlessing, 2 + random.nextInt(10));
+				
+				GodManager.get().GodSay(this.godName, this.player, LanguageManager.LANGUAGESTRING.GodToBelieverItemBlessing, 2 + random.nextInt(10));
 			}
 		}
 	}

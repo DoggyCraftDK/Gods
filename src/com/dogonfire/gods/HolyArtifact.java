@@ -2,18 +2,18 @@ package com.dogonfire.gods;
 
 import java.util.List;
 
-
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_10_R1.inventory.CraftItemStack;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import net.minecraft.server.v1_10_R1.NBTTagCompound;
+import com.dogonfire.gods.managers.HolyPowerManager;
+
 
 public class HolyArtifact
 {
-	private final org.bukkit.inventory.ItemStack s;
+	private final ItemStack s;
 
-	public HolyArtifact(org.bukkit.inventory.ItemStack itemStack)
+	public HolyArtifact(ItemStack itemStack)
 	{
 		this.s = itemStack;
 	}
@@ -21,6 +21,7 @@ public class HolyArtifact
 	public String generateName(Material itemType, String godName)
 	{
 		String name = "Holy Artifact of " + godName;
+		
 		switch (itemType)
 		{
 		case DIAMOND_SPADE:
@@ -85,19 +86,16 @@ public class HolyArtifact
 		return name;
 	}
 
-	public boolean hasTitle()
+	public int getCooldown()
 	{
-		return (this.s.hasItemMeta()) && (this.s.getItemMeta().hasDisplayName());
+		//ItemStack nms = CraftItemStack.asNMSCopy(this.s);
+		//return nms.getTag().getInt("cooldown");
+		return 0;
 	}
 
-	public boolean hasPages()
+	public org.bukkit.inventory.ItemStack getItemStack()
 	{
-		return (this.s.hasItemMeta()) && (this.s.getItemMeta().hasLore());
-	}
-
-	public String getTitle()
-	{
-		return this.s.getItemMeta().getDisplayName();
+		return this.s;
 	}
 
 	public List<String> getPages()
@@ -105,27 +103,26 @@ public class HolyArtifact
 		return this.s.getItemMeta().getLore();
 	}
 
-	public void setTitle(String title)
+	public String getTitle()
 	{
-		ItemMeta itemMeta = this.s.getItemMeta();
-
-		itemMeta.setDisplayName(title);
-
-		this.s.setItemMeta(itemMeta);
+		return this.s.getItemMeta().getDisplayName();
 	}
 
-	public void setPages(List<String> pages)
+	public int getXP()
 	{
-		ItemMeta itemMeta = this.s.getItemMeta();
-
-		itemMeta.setLore(pages);
-
-		this.s.setItemMeta(itemMeta);
+		//ItemStack nms = CraftItemStack.asNMSCopy(this.s);
+		//return nms.getTag().getInt("xp");
+		return 0;
 	}
 
-	public org.bukkit.inventory.ItemStack getItemStack()
+	public boolean hasPages()
 	{
-		return this.s;
+		return (this.s.hasItemMeta()) && (this.s.getItemMeta().hasLore());
+	}
+
+	public boolean hasTitle()
+	{
+		return (this.s.hasItemMeta()) && (this.s.getItemMeta().hasDisplayName());
 	}
 
 	public boolean isHolyArtifact()
@@ -139,29 +136,37 @@ public class HolyArtifact
 
 	public org.bukkit.inventory.ItemStack setCustomFields(int cooldown, int xp, HolyPowerManager.HolyPower holyPower)
 	{
-		net.minecraft.server.v1_10_R1.ItemStack nms = CraftItemStack.asNMSCopy(this.s);
+		//ItemStack nms = CraftItemStack.asNMSCopy(this.s);
 
-		if (nms.getTag() == null)
-		{
-			nms.setTag(new NBTTagCompound());
-		}
+		//if (nms.getTag() == null)
+		//{
+		//	nms.setTag(new NBTTagCompound());
+		//}
+
+		//nms.getTag().setInt("cooldown", cooldown);
+		//nms.getTag().setInt("xp", xp);
+		//nms.getTag().setString("holypower", holyPower.name());
+
+		//return CraftItemStack.asCraftMirror(nms);
 		
-		nms.getTag().setInt("cooldown", cooldown);
-		nms.getTag().setInt("xp", xp);
-		nms.getTag().setString("holypower", holyPower.name());
-
-		return CraftItemStack.asCraftMirror(nms);
+		return null;
 	}
 
-	public int getCooldown()
+	public void setPages(List<String> pages)
 	{
-		net.minecraft.server.v1_10_R1.ItemStack nms = CraftItemStack.asNMSCopy(this.s);
-		return nms.getTag().getInt("cooldown");
+		ItemMeta itemMeta = this.s.getItemMeta();
+
+		itemMeta.setLore(pages);
+
+		this.s.setItemMeta(itemMeta);
 	}
 
-	public int getXP()
+	public void setTitle(String title)
 	{
-		net.minecraft.server.v1_10_R1.ItemStack nms = CraftItemStack.asNMSCopy(this.s);
-		return nms.getTag().getInt("xp");
+		ItemMeta itemMeta = this.s.getItemMeta();
+
+		itemMeta.setDisplayName(title);
+
+		this.s.setItemMeta(itemMeta);
 	}
 }

@@ -1,8 +1,8 @@
 package com.dogonfire.gods.tasks;
 
 import com.dogonfire.gods.Gods;
-import com.dogonfire.gods.LanguageManager;
-import com.dogonfire.gods.LanguageManager.LANGUAGESTRING;
+import com.dogonfire.gods.managers.LanguageManager;
+import com.dogonfire.gods.managers.LanguageManager.LANGUAGESTRING;
 
 import java.util.Random;
 import java.util.UUID;
@@ -29,7 +29,7 @@ public class GodSpeakTask implements Runnable
 		this.message = null;
 	}
 
-	public GodSpeakTask(Gods instance, String gname, UUID playerId, String player, String type, int a, LanguageManager.LANGUAGESTRING m)
+	public GodSpeakTask(Gods instance, String gname, UUID playerId, String player, String type, int a, LANGUAGESTRING m)
 	{
 		this.plugin = instance;
 		this.playerId = playerId;
@@ -109,21 +109,25 @@ public class GodSpeakTask implements Runnable
 		{
 			return;
 		}
-		this.plugin.getLanguageManager().setAmount(this.amount);
+		
+		LanguageManager.get().setAmount(this.amount);
+		
 		try
 		{
-			this.plugin.getLanguageManager().setType(this.typeString);
+			LanguageManager.get().setType(this.typeString);
 		}
 		catch (Exception ex)
 		{
 			this.plugin.logDebug(ex.getStackTrace().toString());
 		}
-		this.plugin.getLanguageManager().setPlayerName(this.playerNameString);
+		
+		LanguageManager.get().setPlayerName(this.playerNameString);
+		
 		if (this.message != null)
 		{
 			player.sendMessage(ChatColor.GOLD + "<" + this.godName + ">: " + ChatColor.WHITE +
 
-			ChatColor.BOLD + this.plugin.getLanguageManager().getLanguageString(this.godName, this.message));
+			ChatColor.BOLD + LanguageManager.get().getLanguageString(this.godName, this.message));
 		}
 		else
 		{
