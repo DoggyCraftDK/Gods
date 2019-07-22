@@ -10,8 +10,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import com.dogonfire.gods.BossManager.BossType;
-import com.dogonfire.gods.LanguageManager.LANGUAGESTRING;
+//import com.dogonfire.gods.BossManager.BossType;
+import com.dogonfire.gods.managers.LanguageManager.LANGUAGESTRING;
 
 public class ProphecyManager 
 {
