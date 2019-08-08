@@ -258,9 +258,10 @@ public class BelieverManager
 
 		double minLength = 5.0D;
 		Player minPlayer = null;
-		for (String believerName : allBelievers)
+		for (String believer : allBelievers)
 		{
-			Player player = Gods.instance().getServer().getPlayer(believerName);
+			UUID believerId = UUID.fromString(believer);
+			Player player = Gods.instance().getServer().getPlayer(believerId);
 			if ((player != null) && (player.getWorld() == location.getWorld()))
 			{
 				double length = player.getLocation().subtract(location).length();

@@ -2,6 +2,7 @@ package com.dogonfire.gods.listeners;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -132,12 +133,12 @@ public class BlockListener implements Listener
 		{
 			return;
 		}
-		String believerName = AltarManager.instance().getDroppedItemPlayer(event.getEntity().getEntityId());
-		if (believerName == null)
+		UUID believerId = AltarManager.instance().getDroppedItemPlayer(event.getEntity().getEntityId());
+		if (believerId == null)
 		{
 			return;
 		}
-		Player player = Gods.instance().getServer().getPlayer(believerName);
+		Player player = Gods.instance().getServer().getPlayer(believerId);
 		if (player == null)
 		{
 			return;
@@ -408,7 +409,7 @@ public class BlockListener implements Listener
 		{
 			return;
 		}
-		AltarManager.instance().addDroppedItem(event.getItemDrop().getEntityId(), player.getName());
+		AltarManager.instance().addDroppedItem(event.getItemDrop().getEntityId(), player.getUniqueId());
 		if (GodsConfiguration.instance().isHolyArtifactsEnabled())
 		{
 			HolyArtifactManager.instance().handleDrop(player.getName(), event.getItemDrop(), event.getItemDrop().getLocation());
@@ -619,8 +620,8 @@ public class BlockListener implements Listener
 				{
 					if (GodManager.instance().isPriest(player.getUniqueId()))
 					{
-						String oldBlessedPlayer = GodManager.instance().getBlessedPlayerForGod(godName);
-						if ((oldBlessedPlayer != null) && (oldBlessedPlayer.equals(blessedPlayer.getUniqueId().toString())))
+						UUID oldBlessedPlayer = GodManager.instance().getBlessedPlayerForGod(godName);
+						if ((oldBlessedPlayer != null) && (oldBlessedPlayer.equals(blessedPlayer.getUniqueId())))
 						{
 							GodManager.instance().setBlessedPlayerForGod(godName, null);
 

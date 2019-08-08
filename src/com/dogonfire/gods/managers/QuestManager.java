@@ -406,7 +406,7 @@ public class QuestManager
 		{
 			return false;
 		}
-		Location believerPosition = Gods.instance().getServer().getPlayer((String) thisGodOnlineBelievers.toArray()[this.random.nextInt(thisGodOnlineBelievers.size())]).getLocation();
+		Location believerPosition = Gods.instance().getServer().getPlayer((UUID) thisGodOnlineBelievers.toArray()[this.random.nextInt(thisGodOnlineBelievers.size())]).getLocation();
 
 		Location targetLocation = getLocationForHolywarQuest(believerPosition.getWorld().getName(), 500, 3000, believerPosition);
 		if (targetLocation == null)
@@ -655,7 +655,7 @@ public class QuestManager
 		{
 			return false;
 		}
-		Location believerPosition = Gods.instance().getServer().getPlayer((String) thisGodOnlineBelievers.toArray()[this.random.nextInt(thisGodOnlineBelievers.size())]).getLocation();
+		Location believerPosition = Gods.instance().getServer().getPlayer((UUID) thisGodOnlineBelievers.toArray()[this.random.nextInt(thisGodOnlineBelievers.size())]).getLocation();
 
 		Location targetLocation = getLocationForSlayDragonQuest(believerPosition.getWorld().getName(), 500, 2000, believerPosition);
 		if (targetLocation == null)

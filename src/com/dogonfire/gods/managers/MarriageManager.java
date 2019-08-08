@@ -89,10 +89,10 @@ public class MarriageManager
 		{
 			this.marriagesConfig.set(partnerId, null);
 
-			Player partner = Gods.instance().getServer().getPlayer(partnerId);
+			Player partner = Gods.instance().getServer().getPlayer(UUID.fromString(partnerId));
 			if (partner != null)
 			{
-				Gods.instance().sendInfo(partner.getUniqueId(), LanguageManager.LANGUAGESTRING.DivorcedYou, ChatColor.RED, "DIVORCED", Gods.instance().getServer().getPlayer(partnerId).getDisplayName(), 1);
+				Gods.instance().sendInfo(partner.getUniqueId(), LanguageManager.LANGUAGESTRING.DivorcedYou, ChatColor.RED, "DIVORCED", Gods.instance().getServer().getPlayer(UUID.fromString(partnerId)).getDisplayName(), 1);
 			}
 		}
 		save();

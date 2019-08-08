@@ -749,7 +749,7 @@ public class GodManager
 		return Material.WOODEN_AXE;
 	}
 
-	public String getBlessedPlayerForGod(String godName)
+	public UUID getBlessedPlayerForGod(String godName)
 	{
 		Date lastBlessedDate = getLastBlessedTimeForGod(godName);
 		if (lastBlessedDate == null)
@@ -768,7 +768,7 @@ public class GodManager
 
 			return null;
 		}
-		return this.godsConfig.getString(godName + ".BlessedPlayer");
+		return UUID.fromString(this.godsConfig.getString(godName + ".BlessedPlayer"));
 	}
 
 	public ChatColor getColorForGod(String godName)
@@ -881,7 +881,7 @@ public class GodManager
 			return null;
 		}
 
-		return Gods.instance().getServer().getPlayer(this.godsConfig.getString(godName + ".CursedPlayer"));
+		return Gods.instance().getServer().getPlayer(UUID.fromString(this.godsConfig.getString(godName + ".CursedPlayer")));
 	}
 
 	public GodType getDivineForceForGod(String godName)
@@ -962,7 +962,7 @@ public class GodManager
 		return this.godsConfig.getStringList(godName + ".War");
 	}
 
-	public String getEnemyPlayerForGod(String godName)
+	public UUID getEnemyPlayerForGod(String godName)
 	{
 		List<String> enemyGods = getEnemyGodsForGod(godName);
 		if (enemyGods.size() == 0)
@@ -982,10 +982,10 @@ public class GodManager
 				{
 					int r = this.random.nextInt(believers.size());
 
-					String believerName = (String) believers.toArray()[r];
-					if (Gods.instance().getServer().getPlayer(believerName) != null)
+					UUID believerId = (UUID) believers.toArray()[r];
+					if (Gods.instance().getServer().getPlayer(believerId) != null)
 					{
-						return believerName;
+						return believerId;
 					}
 					b++;
 				}
@@ -1176,7 +1176,7 @@ public class GodManager
 
 			save();
 
-			mobType = EntityType.fromName(mobTypeString);
+			mobType = EntityType.valueOf(mobTypeString.toUpperCase());
 		}
 		return mobType;
 	}
@@ -1877,7 +1877,7 @@ public class GodManager
 
 			save();
 
-			mobType = EntityType.fromName(mobTypeString);
+			mobType = EntityType.valueOf(mobTypeString.toUpperCase());
 		}
 		return mobType;
 	}
@@ -3033,7 +3033,7 @@ public class GodManager
 		{
 			return;
 		}
-		String blessedPlayer = getBlessedPlayerForGod(godName);
+		UUID blessedPlayer = getBlessedPlayerForGod(godName);
 		if (blessedPlayer == null)
 		{
 			return;
@@ -3052,7 +3052,7 @@ public class GodManager
 
 			if (blessPlayer(godName, player.getUniqueId(), getGodPower(godName)))
 			{
-				LanguageManager.instance().setPlayerName(blessedPlayer);
+				LanguageManager.instance().setPlayerName(player.getName());
 
 				GodSay(godName, player, LanguageManager.LANGUAGESTRING.GodToPlayerBlessed, 2 + this.random.nextInt(10));
 
@@ -3761,12 +3761,9 @@ public class GodManager
 		return true;
 	}
 
-	public boolean setPlayerOnFire(String playerName, int seconds)
+	public boolean setPlayerOnFire(UUID playerId, int seconds)
 	{
-		for (Player matchPlayer : Gods.instance().getServer().matchPlayer(playerName))
-		{
-			matchPlayer.setFireTicks(seconds);
-		}
+		Gods.instance().getServer().getPlayer(playerId).setFireTicks(seconds);
 		return true;
 	}
 

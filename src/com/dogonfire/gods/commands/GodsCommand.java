@@ -11,6 +11,7 @@ public abstract class GodsCommand
 	// These are the Strings that will be used for common responses to player
 	// commands
 	protected static final String	stringNoPermission	= ChatColor.RED + "You do not have permission to perform this command.";
+	protected static final String	stringNoGod			= ChatColor.RED + "You are believing in a God.";
 	protected static final String	stringPlayerOnly	= ChatColor.RED + "This is a Player-Only command.";
 	protected static final String	stringPreistOnly	= ChatColor.RED + "This is a Priest-Only command.";
 

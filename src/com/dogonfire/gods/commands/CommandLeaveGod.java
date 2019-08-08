@@ -12,6 +12,7 @@ public class CommandLeaveGod extends GodsCommand
 	protected CommandLeaveGod()
 	{
 		super("leave");
+		this.permission = "gods.leave";
 	}
 
 	@Override

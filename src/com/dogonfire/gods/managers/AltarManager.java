@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.UUID;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -31,16 +32,16 @@ public class AltarManager
 	}
 
 	private Random							random			= new Random();
-	private Map<Integer, String>			droppedItems	= new HashMap<Integer, String>();
+	private Map<Integer, UUID>			droppedItems	= new HashMap<Integer, UUID>();
 	private Map<Material, List<GodType>>	altarBlockTypes	= new HashMap<Material, List<GodType>>();
 
 	private AltarManager()
 	{
 	}
 
-	public void addDroppedItem(int entityID, String playerName)
+	public void addDroppedItem(int entityID, UUID playerId)
 	{
-		this.droppedItems.put(Integer.valueOf(entityID), playerName);
+		this.droppedItems.put(Integer.valueOf(entityID), playerId);
 	}
 
 	public void clearDroppedItems()
@@ -154,7 +155,7 @@ public class AltarManager
 		return Gods.instance().getServer().getPlayer(playerName);
 	}
 
-	public String getDroppedItemPlayer(int entityID)
+	public UUID getDroppedItemPlayer(int entityID)
 	{
 		return this.droppedItems.get(entityID);
 	}

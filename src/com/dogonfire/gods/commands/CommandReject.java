@@ -3,6 +3,7 @@ package com.dogonfire.gods.commands;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import com.dogonfire.gods.managers.BelieverManager;
 import com.dogonfire.gods.managers.GodManager;
 
 public class CommandReject extends GodsCommand
@@ -26,6 +27,13 @@ public class CommandReject extends GodsCommand
 			sender.sendMessage(stringPlayerOnly);
 			return;
 		}
+
+		if (BelieverManager.instance().getGodForBeliever(((Player) sender).getUniqueId()) == null)
+		{
+			sender.sendMessage(stringNoGod);
+			return;
+		}
+
 		Player player = (Player) sender;
 		GodManager.instance().believerReject(player.getUniqueId());
 	}

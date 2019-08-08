@@ -10,6 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import com.dogonfire.gods.commands.GodsCommandExecuter;
+import com.dogonfire.gods.commands.GodsTabCompleter;
 import com.dogonfire.gods.config.GodsConfiguration;
 import com.dogonfire.gods.listeners.BlockListener;
 import com.dogonfire.gods.listeners.ChatListener;
@@ -96,6 +97,8 @@ public class Gods extends JavaPlugin
 		
 		getCommand("gods").setExecutor(GodsCommandExecuter.instance());
 		getCommand("g").setExecutor(GodsCommandExecuter.instance());
+		getCommand("gods").setTabCompleter(GodsTabCompleter.instance());
+		getCommand("g").setTabCompleter(GodsTabCompleter.instance());
 		
 		PluginManager pm = getServer().getPluginManager();
 
@@ -147,7 +150,6 @@ public class Gods extends JavaPlugin
 				GodManager.instance().update();
 			}
 		}.runTaskTimer(this, 20L, 200L);
-
 	}
 
 	public void reloadSettings()

@@ -33,6 +33,11 @@ public class CommandToggleWar extends GodsCommand
 			sender.sendMessage(stringPlayerOnly);
 			return;
 		}
+		if (args.length != 2)
+		{
+			sender.sendMessage(ChatColor.RED + "You need to specify a God which you want to go to WAR with! " + ChatColor.YELLOW + "/gods war <godname>");
+			return;
+		}
 		Player player = (Player) sender;
 		if (!GodManager.instance().isPriest(player.getUniqueId()))
 		{

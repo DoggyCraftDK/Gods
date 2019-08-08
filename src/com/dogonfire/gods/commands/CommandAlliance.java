@@ -29,6 +29,11 @@ public class CommandAlliance extends GodsCommand {
 			sender.sendMessage(stringPlayerOnly);
 			return;
 		}
+		if (args.length != 2)
+		{
+			sender.sendMessage(ChatColor.RED + "You need to specify a God to ally with! " + ChatColor.YELLOW + "/gods ally <godname>");
+			return;
+		}
 		Player player = (Player) sender;
 		if (!GodManager.instance().isPriest(player.getUniqueId())) {
 			sender.sendMessage(ChatColor.RED + "Only priests can declare religous wars");

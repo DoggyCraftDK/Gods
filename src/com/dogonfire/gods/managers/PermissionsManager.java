@@ -1,5 +1,7 @@
 package com.dogonfire.gods.managers;
 
+import java.util.UUID;
+
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -61,7 +63,15 @@ public class PermissionsManager
 	public String getGroup(String playerName)
 	{
 		if (Gods.instance().vaultEnabled) {
-			return vaultPermission.getPrimaryGroup(null, plugin.getServer().getPlayer(playerName));
+			return getGroup(plugin.getServer().getPlayer(playerName).getUniqueId());
+		}
+		return "";
+	}
+
+	public String getGroup(UUID playerId)
+	{
+		if (Gods.instance().vaultEnabled) {
+			return vaultPermission.getPrimaryGroup(null, plugin.getServer().getPlayer(playerId));
 		}
 		return "";
 	}
@@ -70,6 +80,14 @@ public class PermissionsManager
 	{
 		if (Gods.instance().vaultEnabled) {
 			Player player = plugin.getServer().getPlayer(playerName);
+			setGroup(player.getUniqueId(), groupName);
+		}
+	}
+
+	public void setGroup(UUID playerId, String groupName)
+	{
+		if (Gods.instance().vaultEnabled) {
+			Player player = plugin.getServer().getPlayer(playerId);
 			vaultPermission.playerAddGroup(null, player, groupName);
 		}
 	}

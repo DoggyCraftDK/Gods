@@ -3,6 +3,7 @@ package com.dogonfire.gods.managers;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -193,6 +194,12 @@ public class InstructionBookManager
 	public boolean setBible(String godName, String priestName)
 	{
 		Player player = Gods.instance().getServer().getPlayer(priestName);
+		return setBible(godName, player.getUniqueId());
+	}
+
+	public boolean setBible(String godName, UUID priestId)
+	{
+		Player player = Gods.instance().getServer().getPlayer(priestId);
 		if (player == null)
 		{
 			return false;

@@ -206,9 +206,9 @@ public class HolyLandManager implements Listener
 		Set<String> allBelievers = this.landConfig.getKeys(false);
 		double minLength = 999999.0D;
 		Player minPlayer = null;
-		for (String believerName : allBelievers)
+		for (String believer : allBelievers)
 		{
-			Player player = Gods.instance().getServer().getPlayer(believerName);
+			Player player = Gods.instance().getServer().getPlayer(UUID.fromString(believer));
 			if ((player != null) && (player.getWorld() == location.getWorld()))
 			{
 				double length = player.getLocation().subtract(location).length();
